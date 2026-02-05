@@ -51,7 +51,7 @@ class SignupsControllerTest < ActionDispatch::IntegrationTest
       }
     end
 
-    assert_response :unprocessable_entity
+    assert_redirected_to new_signups_path
   end
 
   test "should not create user with missing name" do
@@ -62,7 +62,7 @@ class SignupsControllerTest < ActionDispatch::IntegrationTest
       }
     end
 
-    assert_response :unprocessable_entity
+    assert_redirected_to new_signups_path
   end
 
   test "should not create user with duplicate email" do
@@ -75,7 +75,7 @@ class SignupsControllerTest < ActionDispatch::IntegrationTest
       }
     end
 
-    assert_response :unprocessable_entity
+    assert_redirected_to new_signups_path
   end
 
 
