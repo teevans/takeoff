@@ -11,13 +11,11 @@ import {
 import {
     Field,
     FieldDescription,
-    FieldError,
     FieldGroup,
     FieldLabel,
 } from "@/components/ui/field.tsx"
 import {Input} from "@/components/ui/input.tsx"
-import {Form, Link, usePage} from '@inertiajs/react'
-import GuestAlerts from "@/components/guest-alerts.tsx";
+import {Form, Link} from '@inertiajs/react'
 
 export function LoginForm({
                               className,

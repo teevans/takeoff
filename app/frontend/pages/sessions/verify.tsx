@@ -109,7 +109,7 @@ function Verify() {
                                                 required
                                                 tabIndex={1}
                                             />
-                                            <FieldError>{errors.email_address?.message}</FieldError>
+                                            {errors.email_address && <FieldError>{errors.email_address}</FieldError>}
                                         </Field>
                                     )}
                                     {pendingEmail && (
@@ -128,7 +128,7 @@ function Verify() {
                                             maxLength={6}
                                             className="uppercase tracking-widest text-center font-mono"
                                         />
-                                        <FieldError>{errors.code?.message}</FieldError>
+                                        {errors.code && <FieldError>{errors.code}</FieldError>}
                                         <FieldDescription>
                                             Enter the 6-character code from your email
                                         </FieldDescription>

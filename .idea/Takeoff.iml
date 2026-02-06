@@ -56,6 +56,7 @@
     <orderEntry type="library" scope="PROVIDED" name="concurrent-ruby (v1.3.6, ruby-4.0.1-p0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="connection_pool (v3.0.2, ruby-4.0.1-p0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="crass (v1.0.6, ruby-4.0.1-p0) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="csv (v3.3.5, ruby-4.0.1-p0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="date (v3.5.1, ruby-4.0.1-p0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="debug (v1.11.1, ruby-4.0.1-p0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="dotenv (v3.2.0, ruby-4.0.1-p0) [gem]" level="application" />
@@ -68,6 +69,7 @@
     <orderEntry type="library" scope="PROVIDED" name="ffi (v1.17.3, ruby-4.0.1-p0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="fugit (v1.12.1, ruby-4.0.1-p0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="globalid (v1.3.0, ruby-4.0.1-p0) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="httparty (v0.24.2, ruby-4.0.1-p0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="i18n (v1.14.8, ruby-4.0.1-p0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="image_processing (v1.14.0, ruby-4.0.1-p0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="inertia_rails (v3.17.0, ruby-4.0.1-p0) [gem]" level="application" />
@@ -87,6 +89,7 @@
     <orderEntry type="library" scope="PROVIDED" name="mini_mime (v1.1.5, ruby-4.0.1-p0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="minitest (v6.0.1, ruby-4.0.1-p0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="msgpack (v1.8.0, ruby-4.0.1-p0) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="multi_xml (v0.8.1, ruby-4.0.1-p0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="mutex_m (v0.3.0, ruby-4.0.1-p0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="net-imap (v0.6.2, ruby-4.0.1-p0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="net-pop (v0.1.2, ruby-4.0.1-p0) [gem]" level="application" />
@@ -123,6 +126,7 @@
     <orderEntry type="library" scope="PROVIDED" name="rdoc (v7.1.0, ruby-4.0.1-p0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="regexp_parser (v2.11.3, ruby-4.0.1-p0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="reline (v0.6.3, ruby-4.0.1-p0) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="resend (v0.27.0, ruby-4.0.1-p0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rexml (v3.4.4, ruby-4.0.1-p0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rubocop (v1.84.1, ruby-4.0.1-p0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rubocop-ast (v1.49.0, ruby-4.0.1-p0) [gem]" level="application" />

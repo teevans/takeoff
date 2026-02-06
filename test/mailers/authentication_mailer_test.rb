@@ -14,8 +14,8 @@ class AuthenticationMailerTest < ActionMailer::TestCase
     ).magic_link
 
     assert_equal "Your magic link to sign in", mail.subject
-    assert_equal [@user.email_address], mail.to
-    assert_equal ["from@example.com"], mail.from
+    assert_equal [ @user.email_address ], mail.to
+    assert_equal [ "from@example.com" ], mail.from
 
     assert_match @user.name, mail.body.encoded
     assert_match @token.code, mail.body.encoded
@@ -32,8 +32,8 @@ class AuthenticationMailerTest < ActionMailer::TestCase
     ).welcome
 
     assert_equal "Welcome! Confirm your email address", mail.subject
-    assert_equal [@user.email_address], mail.to
-    assert_equal ["from@example.com"], mail.from
+    assert_equal [ @user.email_address ], mail.to
+    assert_equal [ "from@example.com" ], mail.from
 
     assert_match @user.name, mail.body.encoded
     assert_match @token.code, mail.body.encoded

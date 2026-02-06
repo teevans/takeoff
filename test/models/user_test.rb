@@ -22,7 +22,7 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test "validates email format" do
-    invalid_emails = ["invalid", "invalid@", "@invalid.com", "invalid@.com"]
+    invalid_emails = [ "invalid", "invalid@", "@invalid.com", "invalid@.com" ]
     invalid_emails.each do |email|
       @user.email_address = email
       assert_not @user.valid?, "#{email} should be invalid"
@@ -31,7 +31,7 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test "accepts valid email formats" do
-    valid_emails = ["user@example.com", "user.name@example.com", "user+tag@example.co.uk"]
+    valid_emails = [ "user@example.com", "user.name@example.com", "user+tag@example.co.uk" ]
     valid_emails.each do |email|
       @user.email_address = email
       assert @user.valid?, "#{email} should be valid"
@@ -68,7 +68,7 @@ class UserTest < ActiveSupport::TestCase
     @user.save!
     token1 = @user.authentication_tokens.create!
     token2 = @user.authentication_tokens.create!
-    
+
     assert_equal 2, @user.authentication_tokens.count
     assert_includes @user.authentication_tokens, token1
     assert_includes @user.authentication_tokens, token2
@@ -78,7 +78,7 @@ class UserTest < ActiveSupport::TestCase
     @user.save!
     session1 = @user.sessions.create!(ip_address: "127.0.0.1", user_agent: "Test Browser")
     session2 = @user.sessions.create!(ip_address: "192.168.1.1", user_agent: "Another Browser")
-    
+
     assert_equal 2, @user.sessions.count
     assert_includes @user.sessions, session1
     assert_includes @user.sessions, session2
@@ -88,7 +88,7 @@ class UserTest < ActiveSupport::TestCase
     @user.save!
     @user.authentication_tokens.create!
     @user.authentication_tokens.create!
-    
+
     assert_difference "AuthenticationToken.count", -2 do
       @user.destroy
     end
@@ -98,7 +98,7 @@ class UserTest < ActiveSupport::TestCase
     @user.save!
     @user.sessions.create!(ip_address: "127.0.0.1", user_agent: "Test")
     @user.sessions.create!(ip_address: "192.168.1.1", user_agent: "Test")
-    
+
     assert_difference "Session.count", -2 do
       @user.destroy
     end

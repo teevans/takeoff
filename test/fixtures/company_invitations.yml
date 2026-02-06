@@ -1,0 +1,17 @@
+# Company invitations fixtures
+
+acme_invitation:
+  company: acme
+  email: newuser@example.com
+  role: member
+  token: <%= SecureRandom.urlsafe_base64(32) %>
+  invited_by: one
+  expires_at: <%= 7.days.from_now %>
+
+widgets_admin_invitation:
+  company: widgets_inc
+  email: admin@example.com
+  role: administrator
+  token: <%= SecureRandom.urlsafe_base64(32) %>
+  invited_by: two
+  expires_at: <%= 7.days.from_now %>

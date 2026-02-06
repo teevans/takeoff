@@ -2,10 +2,18 @@ import {toast, Toaster} from "sonner";
 import {usePage} from "@inertiajs/react";
 import {useEffect} from "react";
 
+interface PageProps {
+    flash?: {
+        notice?: string;
+        alert?: string;
+    }
+    [key: string]: any
+}
 
 export default function GuestLayout({ children }: { children: React.ReactNode }) {
 
-    const { flash } = usePage()
+    const { props } = usePage<PageProps>()
+    const flash = props.flash
 
     useEffect(() => {
         if (flash?.notice)  {

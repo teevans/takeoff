@@ -62,3 +62,6 @@ end
 gem "inertia_rails", "~> 3.17"
 
 gem "vite_rails", "~> 3.0"
+
+# Email sending
+gem "resend", "~> 0.8"

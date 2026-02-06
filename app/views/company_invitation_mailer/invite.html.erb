@@ -1,0 +1,32 @@
+<div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
+  <h2 style="color: #333;">You've been invited to join <%= @company.name %></h2>
+  
+  <p>Hi there,</p>
+  
+  <p><%= @invited_by.name %> has invited you to join <%= @company.name %> as <%= @invitation.role == 'administrator' ? 'an administrator' : 'a member' %>.</p>
+  
+  <div style="text-align: center; margin: 30px 0;">
+    <%= link_to "Accept Invitation", @acceptance_url, 
+        style: "display: inline-block; padding: 12px 24px; background-color: #0066cc; color: white; text-decoration: none; border-radius: 6px; font-weight: 500;" %>
+  </div>
+  
+  <div style="background-color: #f5f5f5; padding: 20px; border-radius: 6px; margin: 20px 0;">
+    <h3 style="margin-top: 0; color: #555;">Invitation Details</h3>
+    <p style="margin: 10px 0;">
+      <strong>Company:</strong> <%= @company.name %><br>
+      <strong>Your role:</strong> <%= @invitation.role.capitalize %><br>
+      <strong>Invited by:</strong> <%= @invited_by.name %>
+    </p>
+  </div>
+  
+  <hr style="border: none; border-top: 1px solid #e0e0e0; margin: 30px 0;">
+  
+  <p style="color: #666; font-size: 14px;">
+    This invitation will expire in 15 minutes. If you don't want to join <%= @company.name %>, you can safely ignore this email.
+  </p>
+  
+  <p style="color: #999; font-size: 12px;">
+    If the button doesn't work, copy and paste this link into your browser:<br>
+    <%= @acceptance_url %>
+  </p>
+</div>

@@ -1,0 +1,15 @@
+You've been invited to join <%= @company.name %>
+
+Hi there,
+
+<%= @invited_by.name %> has invited you to join <%= @company.name %> as <%= @invitation.role == 'administrator' ? 'an administrator' : 'a member' %>.
+
+Accept this invitation:
+<%= @acceptance_url %>
+
+Invitation Details:
+- Company: <%= @company.name %>
+- Your role: <%= @invitation.role.capitalize %>
+- Invited by: <%= @invited_by.name %>
+
+This invitation will expire in 15 minutes. If you don't want to join <%= @company.name %>, you can safely ignore this email.

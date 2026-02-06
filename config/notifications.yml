@@ -1,0 +1,84 @@
+# Notification Types Configuration
+# This file defines all available notification types in the system
+#
+# To add a new notification type:
+# 1. Add it to this file following the structure below
+# 2. Run: rails db:seed (or rails notifications:seed if you create that task)
+# 3. The notification will be available system-wide
+#
+# Structure:
+# - key: unique identifier used in code (e.g., user.notify!(type_key: 'project_created'))
+# - name: human-readable name shown to users
+# - description: explains when this notification is sent
+# - category: groups notifications in settings UI
+# - channels: array of available delivery methods ['email', 'sms', 'push']
+# - default_enabled: whether users are subscribed by default
+# - force_enabled: if true, users cannot unsubscribe
+
+notification_types:
+  # Project notifications
+  project_created:
+    name: "New Project Created"
+    category: "project"
+    description: "When a new project is created in your company"
+    channels: ["email"]
+    default_enabled: true
+    force_enabled: false
+
+  project_completed:
+    name: "Project Completed"
+    category: "project"
+    description: "When a project is marked as completed"
+    channels: ["email"]
+    default_enabled: true
+    force_enabled: false
+
+  project_status_changed:
+    name: "Project Status Changed"
+    category: "project"
+    description: "When a project's status is updated"
+    channels: ["email"]
+    default_enabled: false
+    force_enabled: false
+
+  # Team notifications
+  user_invited:
+    name: "New Team Member Invited"
+    category: "team"
+    description: "When someone is invited to join your company"
+    channels: ["email"]
+    default_enabled: true
+    force_enabled: false
+
+  user_joined:
+    name: "New Team Member Joined"
+    category: "team"
+    description: "When someone accepts an invitation and joins your company"
+    channels: ["email"]
+    default_enabled: true
+    force_enabled: false
+
+  user_removed:
+    name: "Team Member Removed"
+    category: "team"
+    description: "When someone is removed from your company"
+    channels: ["email"]
+    default_enabled: false
+    force_enabled: false
+
+  # System notifications
+  security_alert:
+    name: "Security Alert"
+    category: "system"
+    description: "Important security notifications about your account"
+    channels: ["email"]
+    default_enabled: true
+    force_enabled: true  # Users cannot unsubscribe from security alerts
+
+  system_maintenance:
+    name: "System Maintenance"
+    category: "system"
+    description: "Notifications about scheduled maintenance"
+    channels: ["email"]
+    default_enabled: true
+    force_enabled: false

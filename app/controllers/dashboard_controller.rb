@@ -1,5 +1,5 @@
 class DashboardController < ApplicationController
   def index
-    render inertia: { }
+    render inertia: {}
   end
 end

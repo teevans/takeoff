@@ -12,6 +12,6 @@ class CreateAuthenticationTokens < ActiveRecord::Migration[8.1]
 
     add_index :authentication_tokens, :token, unique: true
     add_index :authentication_tokens, :code
-    add_index :authentication_tokens, [:user_id, :expires_at]
+    add_index :authentication_tokens, [ :user_id, :expires_at ]
   end
 end
