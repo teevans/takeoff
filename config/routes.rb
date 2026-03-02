@@ -3,49 +3,17 @@ Rails.application.routes.draw do
   constraints(host: "127.0.0.1") do
     get "(*path)", to: redirect { |params, req| "#{req.protocol}localhost:#{req.port}/#{params[:path]}" }
   end
-
-  root "dashboard#index"
-  get "dashboard", to: "dashboard#index"
-
-  resource :session, controller: "sessions" do
+  
+  root 'dashboard#index'
+  get 'dashboard', to: 'dashboard#index'
+  
+  resource :session, controller: 'sessions' do
     collection do
       get :verify
     end
   end
-
-  resource :signups, only: %i[new create]
-
-  # Companies and related resources
-  resources :companies do
-    resources :company_invitations, only: [ :new, :create, :index, :destroy ]
-  end
-
-  resources :company_invitations, only: [ :show ]
-  resources :company_redemptions, only: [ :create ]
-  resource :company_switch, only: [ :update ]
-
-  # Projects (scoped to Current.company in controller)
-  resources :projects
-
-  # Notifications
-  resources :notification_settings, only: [:index] do
-    member do
-      patch :update_subscription
-    end
-    collection do
-      patch :update_settings
-    end
-  end
   
-  resources :notification_center, only: [:index] do
-    member do
-      patch :mark_read
-    end
-    collection do
-      patch :mark_all_read
-    end
-  end
-
+  resource :signups, only: %i[new create]
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.

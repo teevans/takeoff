@@ -3,7 +3,6 @@ module Authentication
 
   included do
     before_action :require_authentication
-    before_action :set_current_company
     helper_method :authenticated?
   end
 
@@ -49,21 +48,5 @@ module Authentication
     def terminate_session
       Current.session.destroy
       cookies.delete(:session_id)
-      session.delete(:current_company_id)
-    end
-
-    def set_current_company
-      return unless Current.user
-
-      # Try to restore company from session
-      if session[:current_company_id]
-        Current.company = Current.user.companies.find_by(id: session[:current_company_id])
-      end
-
-      # Fall back to first company if none set or invalid
-      if Current.company.nil? && Current.user.companies.any?
-        Current.company = Current.user.companies.first
-        session[:current_company_id] = Current.company.id
-      end
     end
 end

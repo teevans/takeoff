@@ -1,9 +1,4 @@
-import { useBreadcrumbs } from "@/hooks/use-breadcrumbs"
-
 function Dashboard() {
-    useBreadcrumbs([
-        { label: 'Dashboard' }
-    ])
 
     return [
         <div className="grid auto-rows-min gap-4 md:grid-cols-3">

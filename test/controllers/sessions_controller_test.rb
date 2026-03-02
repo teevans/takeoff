@@ -3,8 +3,6 @@ require "test_helper"
 class SessionsControllerTest < ActionDispatch::IntegrationTest
   setup do
     @user = User.create!(name: "Test User", email_address: "test@example.com")
-    # Create a company for the user so they're not redirected to company creation
-    Company.create_with_owner(name: "Test Company", owner: @user)
   end
 
   test "should get new" do
@@ -56,34 +54,34 @@ class SessionsControllerTest < ActionDispatch::IntegrationTest
 
   test "should verify with valid token" do
     token = @user.authentication_tokens.create!
-
+    
     get verify_session_path, params: { token: token.token }
-
+    
     assert_redirected_to root_path
     assert cookies[:session_id]
-
+    
     token.reload
     assert_not_nil token.used_at
   end
 
   test "should verify with valid code and email" do
     token = @user.authentication_tokens.create!
-
-    get verify_session_path, params: {
-      code: token.code,
-      email_address: @user.email_address
+    
+    get verify_session_path, params: { 
+      code: token.code, 
+      email_address: @user.email_address 
     }
-
+    
     assert_redirected_to root_path
     assert cookies[:session_id]
-
+    
     token.reload
     assert_not_nil token.used_at
   end
 
   test "should not verify with invalid token" do
     get verify_session_path, params: { token: "invalid" }
-
+    
     assert_redirected_to new_session_path
     assert_nil cookies[:session_id]
   end
@@ -91,9 +89,9 @@ class SessionsControllerTest < ActionDispatch::IntegrationTest
   test "should not verify with expired token" do
     token = @user.authentication_tokens.create!
     token.update!(expires_at: 1.minute.ago)
-
+    
     get verify_session_path, params: { token: token.token }
-
+    
     assert_redirected_to new_session_path
     assert_nil cookies[:session_id]
   end
@@ -101,33 +99,33 @@ class SessionsControllerTest < ActionDispatch::IntegrationTest
   test "should not verify with already used token" do
     token = @user.authentication_tokens.create!
     token.use!
-
+    
     get verify_session_path, params: { token: token.token }
-
+    
     assert_redirected_to new_session_path
     assert_nil cookies[:session_id]
   end
 
   test "should not verify with wrong code" do
     token = @user.authentication_tokens.create!
-
-    get verify_session_path, params: {
-      code: "WRONG",
-      email_address: @user.email_address
+    
+    get verify_session_path, params: { 
+      code: "WRONG", 
+      email_address: @user.email_address 
     }
-
+    
     assert_redirected_to new_session_path
     assert_nil cookies[:session_id]
   end
 
   test "should not verify with wrong email" do
     token = @user.authentication_tokens.create!
-
-    get verify_session_path, params: {
-      code: token.code,
-      email_address: "wrong@example.com"
+    
+    get verify_session_path, params: { 
+      code: token.code, 
+      email_address: "wrong@example.com" 
     }
-
+    
     assert_redirected_to new_session_path
     assert_nil cookies[:session_id]
   end
@@ -150,7 +148,7 @@ class SessionsControllerTest < ActionDispatch::IntegrationTest
   #   10.times do
   #     post session_path, params: { email_address: @user.email_address }
   #   end
-  #
+  #   
   #   # 11th request should be rate limited
   #   post session_path, params: { email_address: @user.email_address }
   #   assert_redirected_to new_session_path
